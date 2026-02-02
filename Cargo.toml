@@ -1,6 +1,51 @@
-[package]
+[workspace]
+members = [
+    "crates/aether-core",
+    "crates/aether-runtime",
+    "crates/aether-config",
+    "crates/aether-discovery",
+    "tools/aether-cli",
+]
+resolver = "2"
+
+[workspace.package]
 name = "aether"
 version = "0.1.0"
 edition = "2024"
+authors = ["Alex Efanov <sanyaefan@icloud.com>"]
+license = "MIT"
 
-[dependencies]
+[workspace.dependencies]
+# Асинхронность и системные примитивы
+tokio = { version = "1.38", features = ["full"] }
+# Обработка ошибок
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Конкурентность и синхронизация
+dashmap = "5.5"
+arc-swap = "1.6"
+
+# Сетевые примитивы
+socket2 = "0.5"
+…# Валидация конфигурации
+jsonschema = "0.18"
+validator = { version = "0.16", features = ["derive"] }
+
+# HTTP стек
+http = "1.1"
+http-body = "1.0"
+http-body-util = "0.1"
+hyper = { version = "1.3", features = ["full"] }
+hyper-util = "0.1"
+…k8s-openapi = "0.21"      # Kubernetes API types
+reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
+
+# CLI и утилиты
+clap = { version = "4.5", features = ["derive", "env"] }
+indicatif = "0.17"
+toml = "0.8"
+
+# Тестирование и отладка
+criterion = "0.5"
+insta = "1.38"

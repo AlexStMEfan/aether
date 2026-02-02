@@ -1,0 +1,9 @@
+# aether/rustfmt.toml
+max_width = 100
+hard_tabs = false
+tab_spaces = 4
+newline_style = "Unix"
+use_small_heuristics = "Max"
+reorder_imports = true
+reorder_modules = true
+edition = "2021"

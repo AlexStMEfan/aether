@@ -1,0 +1,33 @@
+# Минимальная конфигурация для старта
+apiVersion: loadbalancer.aether.rs/v1alpha1
+kind: GlobalConfig
+metadata:
+  name: minimal-setup
+  namespace: default
+
+spec:
+  server:
+    listen:
+      - address: "0.0.0.0"
+        port: 8080
+        protocol: http
+      - address: "0.0.0.0"
+        port: 8443
+        protocol: https
+        tls:
+          minVersion: TLSv1_2
+          cipherSuites:
+            - TLS_AES_128_GCM_SHA256
+            - TLS_AES_256_GCM_SHA384
+
+  performance:
+    workerThreads: 4
+    maxConnections: 10000
+
+  observability:
+    metrics:
+      enabled: true
+      endpoint: "/metrics"
+    logging:
+      level: info
+      format: json
