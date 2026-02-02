@@ -1,5 +1,5 @@
 # aether/rust-toolchain.toml
 [toolchain]
-channel = "1.78.0"  # Стабильная версия с поддержкой всех фич
+channel = "1.78.0"
 profile = "minimal"
 components = ["rustfmt", "clippy", "rust-analyzer"]

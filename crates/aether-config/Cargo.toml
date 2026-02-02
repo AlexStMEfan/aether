@@ -1,14 +1,12 @@
 [package]
-name = "aether-core"
+name = "aether-config"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 
 [dependencies]
+aether-core = { path = "../aether-core" }
 serde.workspace = true
-thiserror.workspace = true
+serde_yaml.workspace = true
 anyhow.workspace = true
 tracing.workspace = true
-bytes.workspace = true
-socket2.workspace = true
-ipnet.workspace = true
